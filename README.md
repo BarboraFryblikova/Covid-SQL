@@ -1,6 +1,6 @@
 # Covid-SQL
 
-Zadání:
+**Zadání:**
 
 Vytvoření tabulky obsahující panelová data pro model, který bude vysvětlovat průběh pandemie v závislosti na ekonomických, demografických a geografických vlivech. Pro získání vhodné proměnné jsem do finální tabulky zahrnula následující data:
 
@@ -11,11 +11,11 @@ Zdroj dat - tabulky:
 countries, economies, life_expectancy, religions, covid19_basic_differences, covid19_testing, weather, lookup_table 
 
 
-Postup:
+**Postup:**
 
 Z důvodu poměrně velkého množství různorodých dat jsem se pro přehlednost rozhodla vytvořit  tři temporary tabulky, z kterých jsem pak vytvořila finální tabulku t_barbora_fryblikova_projekt_SQL_final.
 
-temporary table - temp_cov19_eco_dem_project
+1. temporary table - temp_cov19_eco_dem_project
 
 V první temporary tabulce jsou zahrnuta data týkající se počtu nakažených, testovaných, weekend, ročních období, ekonomických údajů - GDP, Gini, demografických údajů - hustoty zalidnení, dětské úmrtnosti a dožití.
 
@@ -26,7 +26,7 @@ Výstup - tabulka obsahující sloupce:
 date / country  / confirmed / tests_performed / weekend / year_season / population_density / GDP_per_resident / mortaliy_under5 / median_age_2018 / gini / life_exp_1965 / life_exp_2015 /  life_exp_diff.
 
 
-temporary table - temp_religion_project
+2. temporary table - temp_religion_project
 
 V druhé temporary tabulce je uvedeno procentní rozdělení jednotlivých náboženství v jednotlivých zemích. Stejně jako v předchozí tabulce jsem pracovala s údaji pro rok 2020. Pro každé náboženství jsem vytvořila vlastní sloupec, v němž jsem spočítala podíl populace hlásící se k jednotlivým náboženství ku celkové populaci. SUM populace v tabulce religions nesedí na tabulku countries, pro účely výpočtu jsem použila SUM populace v tabulce religions, kterou jsem pak pomocí GROUP BY rozložila na jednotlivé země.
 
@@ -35,7 +35,7 @@ Výstup - tabulka obsahující sloupce:
 country / christianity_perc / islam_perc / buddhism_perc / folk_rel_perc / hinduism_perc / other_rel_perc.
 
 
-temporary table - temp_weather_project
+3. temporary table - temp_weather_project
 
 V poslední temporary tabulce bylo zapotřebí provést úpravy dat, zejména jejich oříznutí.Ve sloupci date byla použita funce SUBSTRING a ve sloupcích temp a wind pak SUBSTRING_INDEX a převedení do jiného datového typu.
 
