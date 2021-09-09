@@ -44,6 +44,8 @@ Výstup - tabulka obsahující sloupce:
 date /country /city / temp_day / hours_rain_day / wind_km_per_h.
 
 
+**Závěr**
 
+V závěrečné fázi projektu jsem pomocí funkce LEFT JOIN spojila předešlé tři temporary tabulky přes country a date, podle potřeby a obsahu.
 
 
